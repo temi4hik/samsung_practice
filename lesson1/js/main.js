@@ -21,10 +21,63 @@ var init = function () {
 			}
 		}
 	});
+	
+	loadCanvas();
+	drawChess();
+	
 };
 // window.onload can work without <body onload="">
 window.onload = init;
 
+
+function loadCanvas() {
+	var canvas=document.getElementById("draw")
+	var ctx=canvas.getContext("2d");
+
+    ctx.fillStyle = "#000000";
+    ctx.font = "italic 30pt Arial";
+    ctx.fillText("Tizen", 20, 50);
+    
+    ctx.fillStyle = "blue";
+    ctx.font = "italic 30pt Arial";
+    ctx.fillText("Javascript", 20, 80);
+    
+    
+    ctx.fillStyle = "red";
+    ctx.font = "italic 33pt Arial";
+    ctx.fillText("Html", 15, 130);
+    
+    ctx.fillStyle = "blue";
+    ctx.font = "italic 30pt Arial";
+    ctx.fillText("canvas", 60, 140);
+}
+
+function drawChess() {
+	var canvas=document.getElementById("chess");
+	var ctx=canvas.getContext("2d");
+	
+	
+	var size = 40;
+	
+	var c = 0;
+	
+	for (var i = 0; i < 8; ++i) {
+		for (var j = 0; j < 8; ++j) {
+			var color;
+			if (c % 2 == 0) {
+				color = "white";
+			} else {
+				color = "black";
+			}
+			
+			ctx.fillStyle = color;
+			ctx.fillRect(j * size, i * size ,size,size);
+			
+			c += 1;
+		}
+		c += 1;
+	}
+}
 
 function changeCss() {
 	$('.page2-par').css({'color':'red'});
