@@ -6,12 +6,12 @@
 		<item value="384" key="DIALOG_HEIGHT"/>
 	</section>
 	<section name="org.eclipse.debug.ui.LAUNCH_CONFIGURATIONS_DIALOG_SECTION">
-		<item value="800" key="DIALOG_WIDTH"/>
+		<item value="944" key="DIALOG_WIDTH"/>
 		<item value="1|Noto Sans|9.0|0|GTK|1|" key="DIALOG_FONT_NAME"/>
-		<item value=", org.tizen.web.zimlaunch.WebAppLaunch, " key="org.eclipse.debug.ui.EXPANDED_NODES"/>
-		<item value="762" key="org.eclipse.debug.ui.DIALOG_SASH_WEIGHTS_2"/>
-		<item value="640" key="DIALOG_HEIGHT"/>
-		<item value="237" key="org.eclipse.debug.ui.DIALOG_SASH_WEIGHTS_1"/>
+		<item value="org.tizen.web.zimlaunch.WebAppLaunch, org.tizen.web.simulator.launch.simulatorApplication, " key="org.eclipse.debug.ui.EXPANDED_NODES"/>
+		<item value="444" key="org.eclipse.debug.ui.DIALOG_SASH_WEIGHTS_2"/>
+		<item value="702" key="DIALOG_HEIGHT"/>
+		<item value="555" key="org.eclipse.debug.ui.DIALOG_SASH_WEIGHTS_1"/>
 	</section>
 	<section name="org.eclipse.debug.ui.SELECT_LAUNCH_SHORTCUT_DIALOG">
 		<item value="293" key="DIALOG_WIDTH"/>

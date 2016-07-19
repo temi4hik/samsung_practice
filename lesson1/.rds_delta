@@ -1,6 +1,10 @@
 #delete
 #add
+res/wgt/js/circles.js
+res/wgt/js/octopus.js
+res/wgt/js/rain.js
 #modify
 res/wgt/author-signature.xml
 res/wgt/signature1.xml
-res/wgt/js/main.js
+res/wgt/index.html
+res/wgt/js/balls.js

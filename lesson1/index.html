@@ -15,7 +15,11 @@
     <link rel="stylesheet"  href="./lib/tau/mobile/theme/default/tau.css">
     <link rel="stylesheet" type="text/css" href="css/style.css"/>
 	<script src="./lib/jquery.js"></script>
-
+	
+	<script src="./js/main.js"></script>
+	
+	<script type="text/javascript" src="./lib/tau/mobile/js/tau.js"></script>
+	
 </head>
 
 <body>
@@ -62,6 +66,10 @@
       <ul class="ui-listview">
       	<li class="ui-btn ui-inline"><a href="#two">Show page "two"</a></li>
       	<li class="ui-btn ui-inline"><a href="#three">Show page "three"</a></li>
+      	<li class="ui-btn ui-inline"><a href="#balls-page">Show balls page</a></li>
+      	<li class="ui-btn ui-inline"><a href="#rain-page">Show rain page</a></li>
+      	<li class="ui-btn ui-inline"><a href="#circles-page">Show circles page</a></li>
+      	<li class="ui-btn ui-inline"><a href="#octopus-page">Show octopus page</a></li>
       </ul>
       <p id="resol"></p>
     </section>
@@ -113,15 +121,67 @@ jQuery — библиотека JavaScript, фокусирующаяся на в
 <canvas id='draw' width='240' height='180' style='border:1px solid;'></canvas> 
 
 <canvas id='chess' width='320' height='320' style='border:1px solid;'></canvas> 
+</div>
+</div>
 
 
+<div class='ui-page' id='balls-page'>
+<div class='ui-header'>
+	<h1>Balls</h1>
+</div>
+
+<div class='ui-content'>
+<canvas id="balls"></canvas>
+<button onclick="initBalls();">Animate</button>
+<script src='./js/balls.js'></script>
+<p><a href="#one" class="ui-btn ui-inline">Back to page "one"</a></p>
 </div>
 
 </div>
 
 
-<script type="text/javascript" src="./lib/tau/mobile/js/tau.js"></script>
-<script src="./js/main.js"></script>
+<div class='ui-page' id='rain-page'>
+<div class='ui-header'>
+	<h1>Rain</h1>
+</div>
+
+<div class='ui-content'>
+<canvas id="rain"></canvas>
+<button onclick="startRain();">Animate</button>
+<script src="./js/rain.js"></script>
+<p><a href="#one" class="ui-btn ui-inline" onclick="stopRain();">Back to page "one"</a></p>
+</div>
+
+</div>
+
+
+<div class='ui-page' id='circles-page'>
+<div class='ui-header'>
+	<h1>Rain</h1>
+</div>
+
+<div class='ui-content'>
+<canvas id="circles"></canvas>
+<button onclick="initCircles();">Animate</button>
+<script src="./js/circles.js"></script>
+<p><a href="#one" class="ui-btn ui-inline" onclick="stopCircles()">Back to page "one"</a></p>
+</div>
+
+</div>
+
+<div class='ui-page' id='octopus-page'>
+<div class='ui-header'>
+	<h1>Rain</h1>
+</div>
+
+<div class='ui-content'>
+<canvas id="octopus"></canvas>
+<button onclick="initOct();">Animate</button>
+<script src="./js/octopus.js"></script>
+<p><a href="#one" class="ui-btn ui-inline">Back to page "one"</a></p>
+</div>
+
+</div>
 
 </body>
 </html>

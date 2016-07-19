@@ -1,0 +1,133 @@
+//var gameHeight = window.screen.availHeight / 2; 
+//var gameWidth = window.screen.availWidth;
+
+var gameHeight; 
+var gameWidth;
+var balls;
+var game;
+
+
+var colors = ["red", "green", "blue"];
+var sizes = [10, 15, 6];
+
+
+
+
+function circle(x, y, r, vX, vY) // класс задающий круг
+{
+    this.x = x; // координата х
+    this.y = y; // координата у
+    this.r = r; // радиус
+    this.vX = vX;
+    this.vY = vY;
+    this.draw = function(color, globalAlpha) // метод рисующий круг
+    {
+        context.globalAlpha = globalAlpha; // "прозрачность"
+        context.fillStyle = color; // цвет заливки
+        context.beginPath();
+        context.arc(this.x, this.y, this.r, 0, Math.PI * 2, true);
+        context.fill();
+    };
+}
+function rect(x, y, width, height) // класс задающий прямоугольник
+{
+    this.x = x; // координата х
+    this.y = y; // координата у
+    this.width = width; // ширина
+    this.height = height; // высота
+    this.draw = function(color, globalAlpha) // функция рисует прямоугольник согласно заданным параметрам
+    {
+        context.globalAlpha = globalAlpha;
+        context.fillStyle = color;
+        context.fillRect(this.x, this.y, this.width, this.height);
+    };
+}
+function update() // изменения координат которые нужно произвести
+{
+	
+	balls.forEach(function(ball, i, balls) {
+		 if (ball.y - ball.r < 0 || ball.y + ball.r > gameHeight) // соприкосновение с "полом" и "потолком" холста
+		    {
+		    	ball.vY = -ball.vY;
+		    }
+		 if (ball.x - ball.r < 0 || ball.x + ball.r > gameWidth) // соприкосновение с левой и правй "стенкой" холста 
+			 {
+		    	ball.vX = -ball.vX;
+		 }
+		 
+		 
+		 
+		 // приращение координат
+		 ball.x += ball.vX;
+		 ball.y += ball.vY;
+	});
+}
+
+
+function checkBalls(ballIdx) {
+	
+	var bb = balls[ballIdx];
+	
+	balls.forEach(function(ball, i, balls) {
+		if (i == ballIdx) {
+			continue;
+		}
+		
+		if (bb.y - ball.r )
+		
+	});
+}
+
+
+function ballsTouch(ball1, ball2) {
+	if ((ball1.y - ball1.r) - (ball2.y + ball2.r) < 0 || (ball1.y + ball1.r) - (ball2.y - ball2.r) < 0) {
+		// They touch by y
+		if ((ball1.x - ball1.r) - (ball2.x + ball2.r) < 0 || (ball1.x + ball1.r) - (ball2.x - ball2.r) < 0) {
+			
+		}
+	}
+}
+
+function revertBalls(ball1, ball2) {
+	if (ball1.r > ball2.r) {
+		ball2.vY = -ball2.vY;
+		ball2.vX = -ball2.vX;
+	} else {
+		ball1.vY = -ball1.vY;
+		ball1.vX = -ball1.vX;
+	}
+}
+
+function draw() // рисуем на холсте
+{
+    game.draw("#000", 0.1); // рисуем фон
+    
+    balls.forEach(function(ball, i, balls) {
+    	ball.draw(colors[i], 1);
+    });
+    
+    update(); // обновляем координаты
+}
+function initBalls() // Инициализация переменных
+{
+	gameHeight = 200; 
+	gameWidth = 320;
+	
+	
+    game = new rect(0, 0, gameWidth, gameHeight); // прямоугольник закрашивающий фон
+    
+    balls = [
+             new circle(game.width/2, game.height/2, sizes[0], 5, 5),
+             new circle(game.width/4, game.height/4, sizes[1], -5, 5),
+             new circle(10, 10, sizes[2], 5, -5)
+    ];
+    
+    
+    //ball = ; // шар
+
+    var canvas = document.getElementById("balls");
+    canvas.width = game.width; // ширина холста
+    canvas.height = game.height; // высота холста
+    context = canvas.getContext("2d");
+    setInterval(draw, 1000 / 50); //отрисовываем 50 раз за секунду
+}

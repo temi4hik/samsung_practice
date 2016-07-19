@@ -8,8 +8,7 @@ var imageHtml = "<img alt=\"kitten\" src=\"images/cat.jpg\"><br>";
 var init = function () {
 	// TODO:: Do your initialization job
 	console.log("init() called");
-	
-	
+
 	
 	// add eventListener for tizenhwkey
 	document.addEventListener('tizenhwkey', function(e) {
