@@ -1,0 +1,50 @@
+var startTime;
+var checkTime;
+
+var imageHtml = "<img alt=\"kitten\" src=\"images/cat.jpg\"><br>";
+
+
+//Initialize function
+var init = function () {
+	// TODO:: Do your initialization job
+	console.log("init() called");
+
+	// add eventListener for tizenhwkey
+	document.addEventListener('tizenhwkey', function(e) {
+		if(e.keyName == "back") {
+			try {
+				tizen.application.getCurrentApplication().exit();
+			} catch (error) {
+				console.error("getCurrentApplication(): " + error.message);
+			}
+		}
+	});
+};
+// window.onload can work without <body onload="">
+window.onload = init;
+
+
+function showImage() {
+	
+	var image = document.getElementById('kitten');
+	
+	if (image.innerHTML.length === "") {
+		image.innerHTML = imageHtml;
+	} else {
+		image.innerHTML = "";
+	}
+}
+
+function showResolution() {
+	var resLabel = document.getElementById('resol');
+	
+	if (resLabel.innerHTML.length === "") {
+		button1.innerHTML = imageHtml;
+	} else {
+		button1.innerHTML = "";
+	}
+	
+	
+	document.getElementById('divbutton1').innerHTML 
+}
+
