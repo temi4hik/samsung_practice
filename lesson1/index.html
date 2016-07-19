@@ -14,6 +14,7 @@
     <title>Tizen Web IDE - Tizen - Tizen basic Application</title>
     <link rel="stylesheet"  href="./lib/tau/mobile/theme/default/tau.css">
     <link rel="stylesheet" type="text/css" href="css/style.css"/>
+	<script src="./lib/jquery.js"></script>
 
 </head>
 
@@ -35,6 +36,15 @@
     </div>
     
     
+    <video width="320" height="240" controls>
+  		<source src="_TouchCube.mp4" type="video/mp4">
+	</video>
+    
+    
+    <iframe width="320" height="315"
+		src="https://www.youtube.com/embed/XGSy3_Czz8k">
+	</iframe>
+    
     <p>This is first task.:</p>
     <ul class="ui-listview">
       <li>Button 1 - shows and hides image of cat.
@@ -48,17 +58,58 @@
       <div id="divbutton2">
         <button onclick="showResolution();">Show/hide resolution</button>
       </div>
+      
+      <ul class="ui-listview">
+      	<li class="ui-li-anchor"><a href="#two">Show page "two"</a></li>
+      </ul>
       <p id="resol"></p>
     </section>
 </div>
 
-  <div class="ui-footer">
+<div class="ui-footer">
     <p>&copy; 2012 Company Name. All rights reserved.</p>
-  </div>
+</div>
 </div>
 
-	<script type="text/javascript" src="./lib/tau/mobile/js/tau.js"></script>
-	<script src="./js/main.js"></script>
+
+
+<div class="ui-page" id="two">
+
+<div class="ui-header">
+<h1>JQuery</h1>
+</div>
+
+<div class="ui-content">
+
+
+
+
+
+<div class="page2-par">
+jQuery — библиотека JavaScript, фокусирующаяся на взаимодействии JavaScript и HTML. 
+</div>
+<div class="page2-par">
+Библиотека jQuery помогает легко получать доступ к любому элементу DOM, обращаться к атрибутам и содержимому элементов DOM, манипулировать ими. 
+</div>
+<div class="page2-par">
+Также библиотека jQuery предоставляет удобный API для работы с AJAX. 
+</div>
+<div class="page2-par">
+Сейчас разработка jQuery ведётся командой jQuery во главе с Джоном Резигом.
+</div>
+
+<p><a href="#one" class="ui-btn ui-inline">Back to page "one"</a></p>
+<button onclick="changeCss();">Change color</button>
+
+
+</div>
+
+</div>
+
+
+
+<script type="text/javascript" src="./lib/tau/mobile/js/tau.js"></script>
+<script src="./js/main.js"></script>
 
 </body>
 </html>

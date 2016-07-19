@@ -26,6 +26,10 @@ var init = function () {
 window.onload = init;
 
 
+function changeCss() {
+	$('.page2-par').css({'color':'red'});
+}
+
 function showImage() {
 	
 	var image = document.getElementById('kitten');
