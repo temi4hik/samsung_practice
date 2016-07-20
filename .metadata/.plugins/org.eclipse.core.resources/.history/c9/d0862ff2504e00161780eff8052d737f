@@ -1,0 +1,93 @@
+function getFeed(){
+	var FEED_URL = "http://www.3dnews.ru/news/rss/";
+	var width = screen.width;
+	var i = 0;
+	var arr = [];
+	
+	$(document).ready(function(){
+		$.ajax({
+			type: "GET",
+			url: FEED_URL,
+			dataType: "xml",
+			error: getStorage(function(res){
+				for(var field in res){
+					for (var fieldValue in (value = res[field])){
+						
+						switch (fieldValue){
+						case 'title':
+							var title = value[fieldValue];
+							break;
+						case 'description':
+							var description = value[fieldValue];
+							break;
+						case 'url_img':
+							var url_img = value[fieldValue];
+							break;					
+						}
+					}
+					
+					$("#rssContent").append('<div class="feed">	<div class="images">'+
+							'<img src=' + url_img +' width=' + width + 'px /></div>'+
+							'<div class="title">'+ title +'</div>'+
+							'<div class="description">'+ description +'</div></div>');
+					
+				}
+			}),
+			success: xmlParser			
+		});
+		
+	});
+	
+	
+
+	function xmlParser(xml){
+		
+		clearStorage();
+		
+		$(xml).find("item").each(function(){
+
+			var url_img = $(this).find("enclosure").attr('url');
+			
+			$("#rssContent").append('<div class="feed">'+
+					'<div class="title"><h2>'+ $(this).find("title").text() +'</h2></div>'+
+					'<div class="images">'+ '<img src=' + url_img +' width=' + width + 'px /></div>' + 
+					'<div class="description">'+ $(this).find("description").text() +'</div></div><br>');
+			$("#rssContent").append('<hr>');
+			
+			arr[i]= {url_img:$(this).find("enclosure").attr('url'), title:$(this).find("title").text(), description:$(this).find("description").text()};
+			setData(arr[i]);
+			i++;
+		});
+		
+	}
+}
+
+
+var sqlDb;
+var baseName = "sqlDB";
+
+
+function connectSqlDB() {
+	sqlDb = openDatabase(baseName, "1", "RSS feed.", 200000);
+	
+	if(!sqlDb){
+		alert("Failed to connect to database.");
+	}
+}
+
+
+function getDataSqlDB(f) {
+	
+	db.transaction(function(tx) {
+		tx.executeSql("SELECT * FROM RSS", [], function (result) { f(result) }, function (tx, error) {
+			tx.executeSql("CREATE TABLE RSS (id REAL UNIQUE, title TEXT, image TEXT, description TEXT)", [], null, null);
+			f([]);
+		})
+	});
+}
+
+function addDataSqlDB(title, image, descr) {
+	db.transaction(function(tx) {
+		tx.executeSql("INSERT INTO ToDo (label, timestamp) values(?, ?)", ["Купить iPad или HP Slate", new Date().getTime()], null, null);
+	});
+}

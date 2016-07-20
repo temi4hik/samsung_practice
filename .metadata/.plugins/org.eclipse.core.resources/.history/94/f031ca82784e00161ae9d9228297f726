@@ -1,0 +1,60 @@
+var currentTheme = 'a';
+var titles = [];
+
+
+
+$(document).ready(function(){
+	$('div[data-role="page"]').on('pagebeforeshow', function(e) {
+		updateTheme($(this));
+	});
+	
+	$('#select-choice-1').on('change', function() {
+		currentTheme = this.value;
+		updateTheme($.mobile.activePage);
+	});
+	
+	
+	getFeed();
+	
+	
+	$('#search').on('pagebeforeshow', function(e) {
+		getStorage(function(res){
+			for(var field in res){
+				for (var fieldValue in (value = res[field])){
+					switch (fieldValue){
+					case 'title':
+						var title = value[fieldValue];
+						break;
+					case 'description':
+						var description = value[fieldValue];
+						break;
+					case 'url_img':
+						var url_img = value[fieldValue];
+						break;					
+					}
+				}
+				
+				titles.push(title);
+			}
+			showContent();
+		});
+	});
+});    
+
+
+
+function showContent(inputData) {
+	for (var t in titles) {
+		$('#rss-content').append('<p>' + t + '</p><br>');
+	}
+}
+
+
+function updateTheme(page) {
+	page.removeClass('ui-body-a ui-body-b ui-body-c ui-body-d ui-body-e').addClass('ui-body-' + currentTheme).attr('data-theme', currentTheme);
+	page.removeClass('ui-btn-up-a ui-btn-up-b ui-btn-up-c ui-btn-up-d ui-btn-up-e ui-btn-hover-a ui-btn-hover-b ui-btn-hover-c ui-btn-hover-d ui-btn-hover-e')
+			.addClass('ui-btn-up-' + currentTheme + ' ui-btn-hover-' + currentTheme)
+			.attr('data-theme', currentTheme);
+}
+
+

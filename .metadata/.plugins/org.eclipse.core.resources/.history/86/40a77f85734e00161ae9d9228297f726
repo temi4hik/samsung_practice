@@ -1,0 +1,45 @@
+
+var currentTheme = 'b';
+
+$(document).ready(function(){
+	$('#main_page').on('pagebeforeshow', function(e) {
+		
+		
+		
+		$(this).removeClass('ui-body-a ui-body-b ui-body-c ui-body-d ui-body-e').addClass('ui-body-b').attr('data-theme', 'b');
+		$(this).removeClass('ui-btn-up-a ui-btn-up-b ui-btn-up-c ui-btn-up-d ui-btn-up-e ui-btn-hover-a ui-btn-hover-b ui-btn-hover-c ui-btn-hover-d ui-btn-hover-e')
+				.addClass('ui-btn-up-b ui-btn-hover-b')
+				.attr('data-theme', 'b');
+	});
+	
+	
+	$('#select-choice-1').on('change', function() {
+		currentTheme = this.value;
+//		updateTheme();
+		
+	});
+	
+	$(document).on('pagechange', function() {
+//		updateTheme();
+	})
+
+});    
+
+function updateTheme() {
+	
+    $.mobile.activePage.find('.ui-btn')
+    .removeClass('ui-btn-up-a ui-btn-up-b ui-btn-up-c ui-btn-up-d ui-btn-up-e ui-btn-hover-a ui-btn-hover-b ui-btn-hover-c ui-btn-hover-d ui-btn-hover-e')
+    .addClass('ui-btn-up-' + currentTheme)
+    .attr('data-theme', currentTheme);
+
+//reset the header/footer widgets
+$.mobile.activePage.find('.ui-header, .ui-footer')
+    .removeClass('ui-bar-a ui-bar-b ui-bar-c ui-bar-d ui-bar-e')
+    .addClass('ui-bar-' + currentTheme)
+    .attr('data-theme', currentTheme);
+
+//reset the page widget
+$.mobile.activePage.removeClass('ui-body-a ui-body-b ui-body-c ui-body-d ui-body-e')
+    .addClass('ui-body-' + currentTheme)
+    .attr('data-theme', currentTheme);
+}

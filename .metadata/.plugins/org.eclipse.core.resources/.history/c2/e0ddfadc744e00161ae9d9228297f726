@@ -1,0 +1,8 @@
+function getFeed() {
+	var FEED_URL = "http://www.3dnews.ru/news/rss/";
+	var width = screen.width;
+	var i = 0;
+	var arr = [];
+	
+	
+}

@@ -1,0 +1,21 @@
+function getFeed() {
+	var FEED_URL = "http://www.3dnews.ru/news/rss/";
+	var width = screen.width;
+	var i = 0;
+	var arr = [];
+	
+	$.ajax({
+		type: "GET",
+		url: FEED_URL,
+		dataType: "xml",
+		
+		success: xmlParser
+	});
+	
+	
+	function xmlParser(xml){
+		arr[i]= {url_img:$(this).find("enclosure").attr('url'), title:$(this).find("title").text(), description:$(this).find("description").text(),
+				link:$(this).find('link').text()};
+		
+	}
+}

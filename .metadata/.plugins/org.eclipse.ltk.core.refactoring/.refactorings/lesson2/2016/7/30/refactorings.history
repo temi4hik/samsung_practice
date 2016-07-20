@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;lesson2/js/rssSql&apos; to &apos;rssSql.js&apos;" description="Rename resource &apos;rssSql&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="js/rssSql" name="rssSql.js" stamp="1469001056922" updateReferences="true"/>
+</session>

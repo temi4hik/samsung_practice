@@ -1,0 +1,29 @@
+
+var currentTheme = 'a';
+
+$(document).ready(function(){
+	$('#main_page').on('pagebeforeshow', function(e) {
+		$(this).removeClass('ui-body-a ui-body-b ui-body-c ui-body-d ui-body-e').addClass('ui-body-' + currentTheme).attr('data-theme', currentTheme);
+		$(this).removeClass('ui-btn-up-a ui-btn-up-b ui-btn-up-c ui-btn-up-d ui-btn-up-e ui-btn-hover-a ui-btn-hover-b ui-btn-hover-c ui-btn-hover-d ui-btn-hover-e')
+				.addClass('ui-btn-up-' + currentTheme + ' ui-btn-hover-' + currentTheme)
+				.attr('data-theme', currentTheme);
+	});
+	
+	$('#select-choice-1').on('change', function() {
+		currentTheme = this.value;
+		alert(currentTheme)
+	});
+	
+	$(document).on('pagechange', function() {
+//		updateTheme();
+	})
+
+});    
+
+
+function updateTheme(page) {
+	$(this).removeClass('ui-body-a ui-body-b ui-body-c ui-body-d ui-body-e').addClass('ui-body-' + currentTheme).attr('data-theme', currentTheme);
+	$(this).removeClass('ui-btn-up-a ui-btn-up-b ui-btn-up-c ui-btn-up-d ui-btn-up-e ui-btn-hover-a ui-btn-hover-b ui-btn-hover-c ui-btn-hover-d ui-btn-hover-e')
+			.addClass('ui-btn-up-' + currentTheme + ' ui-btn-hover-' + currentTheme)
+			.attr('data-theme', currentTheme);
+}

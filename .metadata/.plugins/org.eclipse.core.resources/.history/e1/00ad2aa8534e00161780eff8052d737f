@@ -1,0 +1,128 @@
+function getFeedSql(){
+	var FEED_URL = "http://www.3dnews.ru/news/rss/";
+	var width = screen.width;
+	var i = 0;
+	var arr = [];
+	
+//	db.transaction(function(tx) {
+//		tx.executeSql("SELECT * FROM ToDo", [], function(tx, result) {
+//		for(var i = 0; i < result.rows.length; i++) {
+//		document.write('<b>' + result.rows.item(i)['label'] + '</b><br />');
+//		}}, null)}); 
+	
+	$(document).ready(function(){
+		$.ajax({
+			type: "GET",
+			url: FEED_URL,
+			dataType: "xml",
+			error: getDataSqlDB(function(res){
+				
+				
+				for (var i = 0; i < res.rows.length; ++i) {
+					
+				}
+				
+				for(var field in res){
+					for (var fieldValue in (value = res[field])){
+						
+						switch (fieldValue){
+						case 'title':
+							var title = value[fieldValue];
+							break;
+						case 'description':
+							var description = value[fieldValue];
+							break;
+						case 'url_img':
+							var url_img = value[fieldValue];
+							break;					
+						}
+					}
+					
+					$("#rssContentSql").append('<div class="feed">	<div class="images">'+
+							'<img src=' + url_img +' width=' + width + 'px /></div>'+
+							'<div class="title">'+ title +'</div>'+
+							'<div class="description">'+ description +'</div></div>');
+					
+				}
+			}),
+			success: xmlParser			
+		});
+		
+	});
+	
+	
+
+	function xmlParser(xml){
+		
+		clearData();
+		
+		$(xml).find("item").each(function(){
+
+			var url_img = $(this).find("enclosure").attr('url');
+			
+			$("#rssContentSql").append('<div class="feed">'+
+					'<div class="title"><h2>'+ $(this).find("title").text() +'</h2></div>'+
+					'<div class="images">'+ '<img src=' + url_img +' width=' + width + 'px /></div>' + 
+					'<div class="description">'+ $(this).find("description").text() +'</div></div><br>');
+			$("#rssContentSql").append('<hr>');
+			
+			arr[i] = [$(this).find("title").text(), $(this).find("enclosure").attr('url'), $(this).find("description").text()];
+			
+			addDataSqlDB(arr[i][0], arr[i][1], arr[i][2]);
+			i++;
+		});
+		
+	}
+}
+
+
+var sqlDb;
+var baseName = "sqlDB";
+
+
+function connectSqlDB() {
+	sqlDb = openDatabase(baseName, "1", "RSS feed.", 200000);
+	
+	if(!sqlDb){
+		alert("Failed to connect to database.");
+	}
+}
+
+
+function getDataSqlDB(f) {
+	connectSqlDB();
+	
+	sqlDb.transaction(function(tx) {
+		tx.executeSql("SELECT * FROM RSS", [], function (result) { f(result) }, function (tx, error) {
+			tx.executeSql("CREATE TABLE RSS (id REAL UNIQUE, title TEXT, image TEXT, description TEXT)", [], null, null);
+			f([]);
+		})
+	});
+}
+
+function addDataSqlDB(title, image, descr) {
+	
+	connectSqlDB();
+	
+	sqlDb.transaction(function(tx) {
+		tx.executeSql("INSERT INTO RSS (title, image, description) values(?, ?, ?)", [title, image, descr], null, function (tx, error) {
+			tx.executeSql("CREATE TABLE RSS (id REAL UNIQUE, title TEXT, image TEXT, description TEXT)", [], null, null);
+			addDataSqlDB(title, image, descr);
+		});
+	});
+}
+
+function clearData() {
+	connectSqlDB();
+	
+	sqlDb.transaction(function(tx) {
+		tx.executeSql("DROP TABLE RSS",[], 
+			    function(tx,results){
+			console.log("Successfully Dropped")
+			},
+			    function(tx,error){
+				console.log("Could not delete")
+				
+			});
+	});
+}
