@@ -9368,3 +9368,57 @@ java.util.ConcurrentModificationException
 	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:1018)
 	at org.eclipse.debug.internal.ui.DebugUIPlugin$8.run(DebugUIPlugin.java:1222)
 	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:53)
+!SESSION 2016-07-20 09:33:36.806 -----------------------------------------------
+eclipse.buildId=2.4.0_Rev7                    
+java.version=1.8.0_91
+java.vendor=Oracle Corporation
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=en
+Command-line arguments:  -os linux -ws gtk -arch x86_64
+
+!ENTRY org.tizen.common.TizenPlatformConstants 4 0 2016-07-20 09:33:44.725
+!MESSAGE Cannot find directory for IDE on device
+!STACK 0
+org.tizen.sdblib.exception.SdbCommandRejectedException: closed
+	at org.tizen.sdblib.SdbHelper.sendServiceRequest(SdbHelper.java:576)
+	at org.tizen.sdblib.PlatformCapability.loadPlatformCapability(PlatformCapability.java:136)
+	at org.tizen.sdblib.PlatformCapability.<init>(PlatformCapability.java:132)
+	at org.tizen.sdblib.Device.getPlatformCapability(Device.java:823)
+	at org.tizen.common.TizenPlatformConstants.getToolsTargetDirectory(TizenPlatformConstants.java:229)
+	at org.tizen.common.connection.debugtools.OnDemandInstall.<init>(OnDemandInstall.java:92)
+	at org.tizen.common.connection.explorer.ConnectionExplorerPanel.onConnected(ConnectionExplorerPanel.java:1401)
+	at org.tizen.sdblib.SmartDevelopmentBridge.deviceConnected(SmartDevelopmentBridge.java:532)
+	at org.tizen.sdblib.DeviceMonitor.updateDevices(DeviceMonitor.java:339)
+	at org.tizen.sdblib.DeviceMonitor.processIncomingDeviceData(DeviceMonitor.java:241)
+	at org.tizen.sdblib.DeviceMonitor.process(DeviceMonitor.java:430)
+	at org.tizen.sdblib.daemon.AbstractServer.run(AbstractServer.java:242)
+	at java.lang.Thread.run(Thread.java:745)
+
+!ENTRY org.tizen.common.util.SdbCommandUtil 4 0 2016-07-20 09:33:45.141
+!MESSAGE [2016.07.20 09:33:45][ERROR] SdbCommandUtil.java(103) - Cannot check whether a device supports multiuser or not. 4e31324d42005881
+
+!STACK 0
+org.tizen.sdblib.exception.SdbCommandRejectedException: closed
+	at org.tizen.sdblib.SdbHelper.sendServiceRequest(SdbHelper.java:576)
+	at org.tizen.sdblib.PlatformCapability.loadPlatformCapability(PlatformCapability.java:136)
+	at org.tizen.sdblib.PlatformCapability.<init>(PlatformCapability.java:132)
+	at org.tizen.sdblib.Device.getPlatformCapability(Device.java:823)
+	at org.tizen.common.util.SdbCommandUtil.isMultiUserDevice(SdbCommandUtil.java:95)
+	at org.tizen.common.connection.debugtools.OnDemandInstall.<init>(OnDemandInstall.java:94)
+	at org.tizen.common.connection.explorer.ConnectionExplorerPanel.onConnected(ConnectionExplorerPanel.java:1401)
+	at org.tizen.sdblib.SmartDevelopmentBridge.deviceConnected(SmartDevelopmentBridge.java:532)
+	at org.tizen.sdblib.DeviceMonitor.updateDevices(DeviceMonitor.java:339)
+	at org.tizen.sdblib.DeviceMonitor.processIncomingDeviceData(DeviceMonitor.java:241)
+	at org.tizen.sdblib.DeviceMonitor.process(DeviceMonitor.java:430)
+	at org.tizen.sdblib.daemon.AbstractServer.run(AbstractServer.java:242)
+	at java.lang.Thread.run(Thread.java:745)
+
+!ENTRY org.tizen.common.ui.Startup 1 0 2016-07-20 09:33:45.249
+!MESSAGE SDK Information: Path [/home/student/tizen-sdk], Data Path [/home/student/tizen-sdk-data], Platform Path [/home/student/tizen-sdk/platforms/tizen-2.4/mobile]
+
+!ENTRY org.tizen.common.connection.explorer.ConnectionExplorerLabelProvider 4 0 2016-07-20 09:33:45.302
+!MESSAGE [2016.07.20 09:33:45][ERROR] ConnectionExplorerLabelProvider.java(106) - Failed to get platform capability
+
+
+!ENTRY org.tizen.common.connection.explorer.ConnectionExplorerLabelProvider 4 0 2016-07-20 09:33:45.501
+!MESSAGE [2016.07.20 09:33:45][ERROR] ConnectionExplorerLabelProvider.java(106) - Failed to get platform capability
+
