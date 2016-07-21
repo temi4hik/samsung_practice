@@ -1,0 +1,10 @@
+
+
+var alarm = new tizen.AlarmRelative(3 * tizen.alarm.PERIOD_HOUR);
+tizen.alarm.add(alarm, "org.tizen.browser");
+console.log("Alarm added with id: " + alarm.id);
+
+
+function setAlarm() {
+	
+}

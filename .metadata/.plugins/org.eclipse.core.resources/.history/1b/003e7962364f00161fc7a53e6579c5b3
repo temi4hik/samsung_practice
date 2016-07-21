@@ -1,0 +1,19 @@
+function writeLogEnter() {	
+	tizen.filesystem.resolve(
+		     'documents',
+		     function(dir) {
+		       documentsDir = dir; 
+		       dir.listFiles(function(files) {
+		    	   
+		    	   for (var i = 0; i < files.length; ++i) {
+		    		   if (files[i].name == "log.txt") {
+		    			   
+		    		   }
+		    	   }
+		    	   
+		       },null);
+		     }, function(e) {
+		       console.log("Error" + e.message);
+		     }, "rw"
+		 ); 
+}

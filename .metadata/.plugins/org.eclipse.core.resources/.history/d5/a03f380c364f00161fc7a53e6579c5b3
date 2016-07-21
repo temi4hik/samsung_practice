@@ -1,0 +1,11 @@
+function writeLogEnter() {	
+	tizen.filesystem.resolve(
+		     'documents',
+		     function(dir) {
+		       documentsDir = dir; 
+		       dir.listFiles(displayFiles,onerror);
+		     }, function(e) {
+		       console.log("Error" + e.message);
+		     }, "rw"
+		 ); 
+}

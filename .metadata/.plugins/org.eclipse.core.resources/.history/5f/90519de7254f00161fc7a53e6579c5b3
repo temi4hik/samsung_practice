@@ -1,0 +1,10 @@
+
+
+function setAlarm() {
+	
+	var minutes = $("#alarm-period").val();
+	
+	var alarm = new tizen.AlarmRelative(minutes * tizen.alarm.PERIOD_MINUTE);
+	tizen.alarm.add(alarm, "org.tizen.browser");
+	alert("Alarm added with id: " + alarm.id);	
+}

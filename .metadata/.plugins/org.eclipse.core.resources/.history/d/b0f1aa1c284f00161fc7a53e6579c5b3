@@ -1,0 +1,48 @@
+ var documentsDir;
+ 
+ var fileName;
+ var fileContent;
+ 
+ 
+ function onsuccess(files) {
+	 
+	 $("#files").empty();
+	 
+	 for (var i = 0; i < files.length; i++) {  
+		 $("#files").append("File Name is " + files[i].name); // displays file name
+	 }
+
+   var testFile = documentsDir.createFile("test.txt");
+   if (testFile != null) {
+     testFile.openStream(
+         "w",
+         function(fs) {
+           fs.write("HelloWorld");
+           fs.close();
+         }, function(e) {
+           console.log("Error " + e.message);
+         }, "UTF-8"
+     );
+   }
+ }
+
+ function onerror(error) {
+   console.log("The error " + error.message + " occurred when listing the files in the selected folder");
+ }
+ 
+ 
+ function addDoc() {
+	 
+	 fileName = $("#file-name").val();
+	 fileContent = $("#file-content").val();
+	 
+	 tizen.filesystem.resolve(
+		     'documents',
+		     function(dir) {
+		       documentsDir = dir; dir.listFiles(onsuccess,onerror);
+		     }, function(e) {
+		       console.log("Error" + e.message);
+		     }, "rw"
+		 ); 
+ }
+

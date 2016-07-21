@@ -1,0 +1,45 @@
+var documentsDir;
+
+function writeLogEnter() {
+	
+	var logFile = null;
+	
+	tizen.filesystem.resolve(
+		     'documents',
+		     function(dir) {
+		       documentsDir = dir; 
+		       dir.listFiles(function(files) {
+		    	   alert(files);
+		    	   for (var i = 0; i < files.length; ++i) {
+		    		   if (files[i].name == "log.txt") {
+		    			   logFile = files[i];
+		    			   break;
+		    		   }
+		    	   }
+		    	   
+		    	   if (logFile == null) {
+		    		   logFile = documentsDir.createFile("log.txt");
+		    	   }
+		    	   
+		    	   writeLogToFile(logFile, "Just try to write log")
+		    	   
+		       },null);
+		     }, function(e) {
+		       console.log("Error" + e.message);
+		     }, "rw"
+		 ); 
+}
+
+function writeLogToFile(file, text) {
+	alert(text);
+	file.openStream(
+			"w",
+			function(fs) {
+				fs.write(text);
+				fs.close();
+			}, function(e) {
+				console.log("Error" + e.message);
+			},
+			"UTF-8"
+		);
+}

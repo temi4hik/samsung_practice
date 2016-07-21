@@ -3,6 +3,9 @@
 #modify
 res/wgt/author-signature.xml
 res/wgt/signature1.xml
-res/wgt/index.html
-res/wgt/js/rss.js
-res/wgt/js/rssSql.js
+res/wgt/js/alarm.js
+res/wgt/js/battery.js
+res/wgt/js/docs.js
+res/wgt/js/log.js
+res/wgt/js/messages.js
+res/wgt/js/wifi.js

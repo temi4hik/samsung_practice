@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<manifest xmlns="http://tizen.org/ns/packages" api-version="2.4" package="org.example.selfcamerac" version="1.0.0">
+    <profile name="mobile" />
+    <ui-application appid="org.example.selfcamerac" exec="selfcamerac" type="capp" multiple="false" taskmanage="true" nodisplay="false">
+        <icon>selfcamerac.png</icon>
+        <label>selfcamerac</label>
+    </ui-application>
+    <privileges>
+        <privilege>http://tizen.org/privilege/mediastorage</privilege>
+        <privilege>http://tizen.org/privilege/camera</privilege>
+        <privilege>http://tizen.org/privilege/appmanager.launch</privilege>
+    </privileges>
+</manifest>

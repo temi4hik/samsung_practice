@@ -83,7 +83,6 @@ function setData(obj){
 	connectDB(function(db){
 		getData(obj['link'], function(res) {
 			if (res == -1) {
-				alert('Set data');
 				var request = db.transaction([storeName], "readwrite").objectStore(storeName).add(obj);
 				request.onsuccess = function(){
 					return request.result;

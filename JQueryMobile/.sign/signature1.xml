@@ -4,11 +4,11 @@
 <SignatureMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha256"></SignatureMethod>
 <Reference URI="author-signature.xml">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
-<DigestValue>lIMMeteEKzLyhYRBrpAZj6md07s2epr4ZIOlqkR1PIw=</DigestValue>
+<DigestValue>xE2hJJ9Qy3dHI5T6Ea6CtRMYaaDVQt5/wxq7pKfsbH4=</DigestValue>
 </Reference>
 <Reference URI="config.xml">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
-<DigestValue>gemGcvrDFXV/p/9HaMkmFnhbDlJ31Ze0PkEah9ASr8g=</DigestValue>
+<DigestValue>20E6kxvyluWpfwVTKP/aDMLTHQNC+Yeo9limGmN4Vno=</DigestValue>
 </Reference>
 <Reference URI="css%2Fjquery.mobile-1.4.5.min.css">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
@@ -44,15 +44,47 @@
 </Reference>
 <Reference URI="index.html">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
-<DigestValue>PQT32IdH3BwtrRE6K0Gphe2ZhunmqeoNgIQEMW3vZj0=</DigestValue>
+<DigestValue>BTdvCgXt+8hnE/3JS7QIV2h/lbsKjpx/a+PpLV9u3fk=</DigestValue>
+</Reference>
+<Reference URI="js%2Falarm.js">
+<DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
+<DigestValue>ehsVMUCSwX3fJgI1a1eE7wtZlUbkRzSoOp5Zcl7HnvY=</DigestValue>
+</Reference>
+<Reference URI="js%2Fbattery.js">
+<DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
+<DigestValue>5v+32Wr7G9GGZvDbq4w1+B2qWzRr7Oz24YW+g54YCxk=</DigestValue>
+</Reference>
+<Reference URI="js%2Fcamera.js">
+<DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
+<DigestValue>L8qL6nUnkKkSLW5mNyfk5ggPh+ER77yRgwKWGfeeNlY=</DigestValue>
+</Reference>
+<Reference URI="js%2Fdocs.js">
+<DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
+<DigestValue>Z5XNnaEOtzb5B+K8w76/Gp5uSEiyyC4GB0E5h+bAyCo=</DigestValue>
+</Reference>
+<Reference URI="js%2Flog.js">
+<DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
+<DigestValue>EHCyuoKFJMSerwEb63FlxM7ZZwCyGj5Th0ZShE38HEo=</DigestValue>
 </Reference>
 <Reference URI="js%2Fmain.js">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
-<DigestValue>MVEVSa8cp2t4JzV4rHt9yAXfaFR7rSL8P6E6ZhkNRu4=</DigestValue>
+<DigestValue>xGzoJQCM1mKshR9H2K9DVe663KWErPyT6lEz4Rt8FYc=</DigestValue>
+</Reference>
+<Reference URI="js%2Fmessages.js">
+<DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
+<DigestValue>TTnqBNN55gTxJ3JaZG32Y4eHKhAppvHAWL5cB480XpY=</DigestValue>
 </Reference>
 <Reference URI="js%2Frss.js">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
-<DigestValue>dQfz6zEEVssLuYu6GjWNcUZ/nXwt3nHw0GdCwRHHbJU=</DigestValue>
+<DigestValue>P83d7TfJptwRLB85EutV4e1/wNzf5NJrafs9yWHPMXI=</DigestValue>
+</Reference>
+<Reference URI="js%2Ft-api.js">
+<DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
+<DigestValue>vy1CcnW0tdbf+eOk4mJrfnHPSMV0eDEsrZ8d/wfMpmw=</DigestValue>
+</Reference>
+<Reference URI="js%2Fwifi.js">
+<DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
+<DigestValue>T6B6v54C6L18oxIeFSH8o3+qrccH5RsXlM87FHhaKrc=</DigestValue>
 </Reference>
 <Reference URI="lesson2.wgt">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
@@ -79,11 +111,11 @@
 </Reference>
 </SignedInfo>
 <SignatureValue>
-FQw4zY6+FGlAFfURQTTvXUFDrIazB0cfXTpwUdRwoKdwcFZXa6HP9J2kw+LKXusf6a2xqOguJxUj
-aWaHi8sAMuIITG3KRmEMOiSRWCL4OZePWR7OiYtJpaCFhj11nRAo2SOrqisT/2rXraIpGtqISnUy
-Qne74C3EU2CQ1gJnr9zDfcTY9zsbr6q1HgFPAv3nHYiwLSdj3RcptQZUqeSiEdcMbGzO/roK+cNz
-2qZeRTFv5KHO3CAESS8Pt9+urK6uypzRL5nisukrgGmT6sIGBib9F8xWzCYxSZX/WVTS/WETDfv7
-TNIveGQSev2f4K4x0PpO3Ucczsx87D7pG3Uu6g==
+nTkFx3P2n0evAGQRf3xNak2hgRvmZiuPAEiSZ4uFXrzRJYiKjj/PDKaEGJWhVzgRfUEp7RprgFRk
+6ZOpUvF5r3mneBPgffMxAeiDP8m6zJO0ouxuX9q+tM5XADJxOUsuyvbERQi68dzMnsDFJPnDptCZ
+ivvqj7GQEis2qjFlTSplZ3fNnfuoMYde1EhkNQ+b7m3we6YUwMlGDLe3Si9qCqkcIJHe6Fv8EeJk
+no1ET9FifswtL2wPDXXji22AMEwprAzYXumJmBieaaQgeQq2KbP7NMm6VXklioJEvXREKPl8h9Wy
+ceFheO9Fjgj/pXQYtZN/jVVoQ/s9RJVGJiUd4Q==
 </SignatureValue>
 <KeyInfo>
 <X509Data>

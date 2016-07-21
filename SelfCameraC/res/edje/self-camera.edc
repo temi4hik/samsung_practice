@@ -1,0 +1,308 @@
+/*
+ * Copyright (c) 2014 Samsung Electronics Co., Ltd All Rights Reserved
+ *
+ * Licensed under the Apache License, Version 2.0 (the License);
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+#define IMAGE_PATH ""
+
+#define FONT_NAME "font=SLP:style=Roman"
+
+images
+{
+    image: IMAGE_PATH"timer_2.png" COMP;
+    image: IMAGE_PATH"timer_2_selected.png" COMP;
+    image: IMAGE_PATH"timer_5.png" COMP;
+    image: IMAGE_PATH"timer_5_selected.png" COMP;
+    image: IMAGE_PATH"timer_10.png" COMP;
+    image: IMAGE_PATH"timer_10_selected.png" COMP;
+
+    image: IMAGE_PATH"bar.png" COMP;
+
+    image: IMAGE_PATH"shutter.png" COMP;
+    image: IMAGE_PATH"shutter2.png" COMP;
+
+    image: IMAGE_PATH"none.png" COMP;
+    image: IMAGE_PATH"transparent.png" COMP;
+} //images
+
+collections
+{
+
+    base_scale: 1.8;
+
+    group
+    {
+        name: "layout";
+        parts
+        {
+            part
+            {
+                name: "bottom_bar";
+                type: IMAGE;
+                description
+                {
+                    fixed: 1 1;
+                    rel1 { relative: 0.0 0.93; }
+                    rel2 { relative: 1.0 1.0; }
+                    visible: 1;
+                    image.normal: IMAGE_PATH"bar.png";
+                }
+            } //part
+
+            part
+            {
+                name: "elm.swallow.content";
+                type: SWALLOW;
+                description
+                {
+                    rel1 { relative: 0.0 0.0; }
+                    rel2 { relative: 1.0 0.0; to: bottom_bar; }
+                    visible: 1;
+                }
+            } //part
+
+            part
+            {
+                name: "timer_2";
+                type: IMAGE;
+                description
+                {
+                    fixed: 1 1;
+                    rel1 { relative: 0.025 0.015; to: elm.swallow.content; }
+                    rel2 { relative: 0.115 0.075; to: elm.swallow.content; }
+                    min: 35 35;
+                    max: 70 70;
+                    visible: 1;
+                    image.normal: IMAGE_PATH"timer_2.png";
+                }
+                description {
+                    state: "selected" 0.0;
+                    inherit: "default" 0.0;
+                    image.normal: IMAGE_PATH"timer_2_selected.png";
+                }
+            } //part
+
+            part
+            {
+                name: "timer_5";
+                type: IMAGE;
+                description
+                {
+                    fixed: 1 1;
+                    rel1 { relative: 0.160 0.015; to: elm.swallow.content; }
+                    rel2 { relative: 0.250 0.075; to: elm.swallow.content; }
+                    min: 35 35;
+                    max: 70 70;
+                    visible: 1;
+                    image.normal: IMAGE_PATH"timer_5.png";
+                }
+                description {
+                    state: "selected" 0.0;
+                    inherit: "default" 0.0;
+                    image.normal: IMAGE_PATH"timer_5_selected.png";
+                }
+            } //part
+
+            part
+            {
+                name: "timer_10";
+                type: IMAGE;
+                description
+                {
+                    fixed: 1 1;
+                    rel1 { relative: 0.295 0.015; to: elm.swallow.content; }
+                    rel2 { relative: 0.385 0.075; to: elm.swallow.content; }
+                    min: 35 35;
+                    max: 70 70;
+                    visible: 1;
+                    image.normal: IMAGE_PATH"timer_10.png";
+                }
+                description {
+                    state: "selected" 0.0;
+                    inherit: "default" 0.0;
+                    image.normal: IMAGE_PATH"timer_10_selected.png";
+                }
+            } //part
+
+            part
+            {
+                name: "timer_text";
+                type: TEXT;
+                scale: 1;
+                description {
+                    fixed: 1 1;
+                    state: "default" 0.0;
+                    rel1 { relative: 0.0 0.0; to: elm.swallow.content; }
+                    rel2 { relative: 1.0 0.0; to: bottom_bar; }
+                    color: 0 255 0 255;
+                    text {
+                        font: FONT_NAME;
+                        size: 255;
+                        min: 1 1;
+                        align: 0.5 0.5;
+                    }
+                }
+            }
+
+            part
+            {
+                name: "shutter_button";
+                type: IMAGE;
+                description
+                {
+                    fixed: 1 1;
+                    rel1 { relative: 0.38 0.85; }
+                    rel2 { relative: 0.62 0.98; to_y: bottom_bar; }
+                    min: 88 88;
+                    max: 176 176;
+                    visible: 1;
+                    image.normal: IMAGE_PATH"shutter.png";
+                }
+                description {
+                    state: "pressed" 0.0;
+                    inherit: "default" 0.0;
+                    image.normal: IMAGE_PATH"shutter2.png";
+                }
+            } //part
+
+            part
+            {
+                name: "gallery_button";
+                type: IMAGE;
+                description
+                {
+                    fixed: 1 1;
+                    rel1 { relative: 0.05 0.865; }
+                    rel2 { relative: 0.20 0.965; }
+                    visible: 1;
+                    image.normal: IMAGE_PATH"transparent.png";
+                }
+                description {
+                    state: "no_image" 0.0;
+                    inherit: "default" 0.0;
+                    image.normal: IMAGE_PATH"none.png";
+                }
+            } //part
+
+            part
+            {
+                name: "thumbnail";
+                type: SWALLOW;
+                description
+                {
+                    fixed: 1 1;
+                    visible: 1;
+                    rel1 { relative: 0 0; offset: 5 5; to: gallery_button; }
+                    rel2 { relative: 1.0 1.0; offset: -5 -5; to: gallery_button; }
+                }
+            }
+
+            programs
+            {
+                program
+                {
+                    name: "clicked_timer_2";
+                    signal: "mouse,clicked,1";
+                    source: "timer_2";
+                    script {
+                        set_state(PART:"timer_2", "selected", 0.0);
+                        set_state(PART:"timer_5", "default", 0.0);
+                        set_state(PART:"timer_10", "default", 0.0);
+                        emit("timer_2_selected", "timer_2");
+                    }
+                } //program
+                program
+                {
+                    name: "clicked_timer_5";
+                    signal: "mouse,clicked,1";
+                    source: "timer_5";
+                    script {
+                        set_state(PART:"timer_5", "selected", 0.0);
+                        set_state(PART:"timer_2", "default", 0.0);
+                        set_state(PART:"timer_10", "default", 0.0);
+                        emit("timer_5_selected", "timer_5");
+                    }
+                } //program
+                program
+                {
+                    name: "clicked_timer_10";
+                    signal: "mouse,clicked,1";
+                    source: "timer_10";
+                    script {
+                        set_state(PART:"timer_10", "selected", 0.0);
+                        set_state(PART:"timer_2", "default", 0.0);
+                        set_state(PART:"timer_5", "default", 0.0);
+                        emit("timer_10_selected", "timer_10");
+                    }
+                } //program
+                program {
+                    name: "down_shutter";
+                    signal: "mouse,down,*";
+                    source: "shutter_button";
+                    script {
+                        set_state(PART:"shutter_button", "pressed", 0.0);
+                        emit("shutter_button_down", "shutter_button");
+                    }
+                }
+                program {
+                    name: "up_shutter";
+                    signal: "mouse,up,1";
+                    source: "shutter_button";
+                    script {
+                        set_state(PART:"shutter_button", "default", 0.0);
+                        emit("shutter_button_up", "shutter_button");
+                    }
+                }
+                program
+                {
+                    name: "clicked_shutter";
+                    signal: "mouse,clicked,1";
+                    source: "shutter_button";
+                    script {
+                        set_state(PART:"shutter_button", "default", 0.0);
+                        emit("shutter_button_clicked", "shutter_button");
+                    }
+                } //program
+                program
+                {
+                    name: "clicked_gallery_button";
+                    signal: "mouse,clicked,1";
+                    source: "gallery_button";
+                    script {
+                        emit("gallery_button_clicked", "gallery_button");
+                    }
+                } //program
+                program
+                {
+                    name: "no_image";
+                    signal: "no_image";
+                    source: "gallery_button";
+                    script {
+                        set_state(PART:"gallery_button", "no_image", 0.0);
+                    }
+                } //program
+                program
+                {
+                    name: "default";
+                    signal: "default";
+                    source: "gallery_button";
+                    script {
+                        set_state(PART:"gallery_button", "default", 0.0);
+                    }
+                } //program
+            } //programs
+
+        } //parts
+    } //group
+} //collections
