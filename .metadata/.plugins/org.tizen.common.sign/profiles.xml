@@ -5,4 +5,8 @@
 <profileitem ca="" distributor="1" key="/home/student/tizen-sdk-data/keystore/Zs/distributor.p12" password="H7r5CFouUD4=" rootca=""/>
 <profileitem ca="" distributor="2" key="" password="xmEcrXPl1ss=" rootca=""/>
 </profile>
+<profile name="wear">
+<profileitem ca="" distributor="0" key="/home/student/tizen-sdk-data/keystore/wear/author.p12" password="H7r5CFouUD4=" rootca=""/>
+<profileitem ca="" distributor="1" key="/home/student/tizen-sdk-data/keystore/wear/distributor.p12" password="H7r5CFouUD4=" rootca=""/>
+</profile>
 </profiles>
